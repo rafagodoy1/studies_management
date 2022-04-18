@@ -137,7 +137,7 @@ def reference_create():
             flash('Dependancy Source is required!')
         else:
             conn = get_db_connection()
-            
+
             sql_insertion = "INSERT INTO reference (ks_source_id, ks_dependant_id, is_mandatory, dependency_source) VALUES "
             sql_insertion = sql_insertion + f"({ks_source_id}, {ks_dependant_id}, {is_mandatory}, '{dependency_source}')"
             conn.execute(sql_insertion)
@@ -146,6 +146,39 @@ def reference_create():
             return redirect(url_for('index'))
 
     return render_template('reference_create.html')
+
+@app.route('/contribution-list')
+def contribution_list():
+    
+    conn = get_db_connection()
+    contribution = conn.execute('SELECT * FROM contribution').fetchall()
+    conn.close()
+
+    return render_template('contribution_list.html', contribution=contribution)
+
+@app.route('/contribution-create', methods=('GET', 'POST'))
+def contribution_create():
+    if request.method == 'POST':
+        person_id = request.form['person_id']
+        ks_id = request.form['ks_id']
+        contribution_type = request.form['contribution_type']
+
+        if not person_id:
+            flash('Person ID is required!')
+        elif not ks_id:
+            flash('KS ID is required!')
+        elif not contribution_type:
+            flash('Contribution Type is required!')
+        else:
+            conn = get_db_connection()
+            
+            sql_insertion = f"INSERT INTO contribution (person_id, ks_id, contribution_type) VALUES ({person_id}, {ks_id}, '{contribution_type}')"
+            conn.execute(sql_insertion)
+            conn.commit()
+            conn.close()
+            return redirect(url_for('index'))
+
+    return render_template('contribution_create.html')
 
 @app.route('/interaction-list')
 def interaction_list():

@@ -18,7 +18,7 @@
     </div>
     <div class="form-group">
         <label for="ks_id">Insert KS ID:</label>
-        <input type="text" name="ks_id"
+        <input type="integer" name="ks_id"
                placeholder="KS ID" class="form-control"
                value="{{ request.form['ks_id'] }}"></input>
     </div>
@@ -66,13 +66,13 @@
     </div>
     <div class="form-group">
         <label for="ks_partition_total">Insert Partition Total:</label>
-        <input type="text" name="ks_partition_total"
+        <input type="integer" name="ks_partition_total"
                placeholder="Partition Total" class="form-control"
                value="{{ request.form['ks_partition_total'] }}"></input>
     </div>
     <div class="form-group">
         <label for="ks_total">Insert KS Total:</label>
-        <input type="text" name="ks_total"
+        <input type="integer" name="ks_total"
                placeholder="KS Total" class="form-control"
                value="{{ request.form['ks_total'] }}"></input>
     </div>
@@ -90,7 +90,7 @@
     </div>
     <div class="form-group">
         <label for="interaction_log_time_min">Insert Log Time (min):</label>
-        <input type="text" name="interaction_log_time_min"
+        <input type="integer" name="interaction_log_time_min"
                placeholder="Log Time (min)" class="form-control"
                value="{{ request.form['interaction_log_time_min'] }}"></input>
     </div>
