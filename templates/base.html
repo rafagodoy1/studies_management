@@ -33,17 +33,17 @@
             <li class="nav-item active">
                 <a class="nav-link" href="{{url_for('person_list')}}">Person List</a>
             </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Entities</a>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('reference_create')}}">New Reference</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">Relationships</a>
+                <a class="nav-link" href="{{url_for('reference_list')}}">Reference List</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{url_for('interaction_create')}}">New Study Log</a>
             </li>
             <li class="nav-item active">
-                <a class="nav-link" href="#">Log Study</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="#">Stats</a>
+                <a class="nav-link" href="{{url_for('interaction_list')}}">Study Log List</a>
             </li>
             </ul>
         </div>
