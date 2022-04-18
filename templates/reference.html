@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} Reference Details {% endblock %}</h2>
+    <u>
+        <li>Reference ID: {{ reference['reference_id'] }}</li>
+        <li>KS Source ID: {{ reference['ks_source_id'] }}</li>
+        <li>KS Dependant ID: {{ reference['ks_dependant_id'] }}</li>
+        <li>Is Mandatory Flag: {{ reference['is_mandatory'] }}</li>
+        <li>Dependency Source: {{ reference['dependency_source'] }}</li>
+    </u>
+    <span class="badge badge-primary">{{ reference['reference_created_at'] }}</span>
+{% endblock %}

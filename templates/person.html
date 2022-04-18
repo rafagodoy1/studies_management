@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} Person Details {% endblock %}</h2>
+    <u>
+        <li>Person Name: {{ person['person_name'] }}</li>
+        <li>Person ID: {{ person['person_id'] }}</li>
+    </u>
+    <span class="badge badge-primary">{{ person['person_created_at'] }}</span>
+{% endblock %}

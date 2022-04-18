@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} Contribution Details {% endblock %}</h2>
+    <u>
+        <li>Contribution ID: {{ contribution['contribution_id'] }}</li>
+        <li>Person ID: {{ contribution['person_id'] }}</li>
+        <li>KS ID: {{ contribution['person_id'] }}</li>
+        <li>Contribution Type: {{ contribution['contrbution_type'] }}</li>
+    </u>
+    <span class="badge badge-primary">{{ contribution['contribution_created_at'] }}</span>
+{% endblock %}

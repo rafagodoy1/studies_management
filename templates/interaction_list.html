@@ -12,7 +12,9 @@
                 <li>Log Time: {{ item['interaction_log_time_min'] }}</li>
             </ul>
         </a>
-        <span class="badge badge-primary">{{ item['interaction_created_at'] }}</span>
+        <a href="{{ url_for('interaction_edit', interaction_id=item['interaction_id']) }}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
         <hr>
     {% endfor %}
 {% endblock %}

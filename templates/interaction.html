@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} Interaction Details {% endblock %}</h2>
+    <u>
+        <li>Type of Study: {{ interaction['interaction_type_of_study'] }}</li>
+        <li>KS Type: {{ interaction['ks_type'] }}</li>
+        <li>KS ID: {{ interaction['ks_id'] }}</li>
+        <li>KS Partition Type: {{ interaction['ks_partition_type'] }}</li>
+        <li>KS Partition Name: {{ interaction['ks_partition_name'] }}</li>
+        <li>KS Partition Number: {{ interaction['ks_partition_number'] }}</li>
+        <li>Interaction Date: {{ interaction['interaction_date'] }}</li>
+        <li>KS Partition Metric: {{ interaction['ks_partition_metric'] }}</li>
+        <li>KS Partition Start: {{ interaction['ks_partition_start'] }}</li>
+        <li>KS Partition Finish: {{ interaction['ks_partition_finish'] }}</li>
+        <li>KS Partition Total: {{ interaction['ks_partition_total'] }}</li>
+        <li>KS Total: {{ interaction['ks_total'] }}</li>
+        <li>KS Partition Percentage: {{ interaction['ks_partition_percentage'] }}</li>
+        <li>Log Type: {{ interaction['interaction_log_type'] }}</li>
+        <li>Log Time: {{ interaction['interaction_log_time_min'] }}</li>
+    </u>
+    <span class="badge badge-primary">{{ interaction['interaction_created_at'] }}</span>
+{% endblock %}

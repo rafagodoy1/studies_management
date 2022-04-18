@@ -11,7 +11,9 @@
                 <li>Contribution Type: {{ item['contribution_type'] }}</li>
             </ul>
         </a>
-        <span class="badge badge-primary">{{ item['contribution_created_at'] }}</span>
+        <a href="{{ url_for('contribution_edit', contribution_id=item['contribution_id']) }}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
         <hr>
     {% endfor %}
 {% endblock %}

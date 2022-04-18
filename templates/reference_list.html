@@ -12,7 +12,9 @@
                 <li>Dependency Source: {{ item['dependency_source'] }}</li>
             </ul>
         </a>
-        <span class="badge badge-primary">{{ item['reference_created_at'] }}</span>
+        <a href="{{ url_for('reference_edit', reference_id=item['reference_id']) }}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
         <hr>
     {% endfor %}
 {% endblock %}

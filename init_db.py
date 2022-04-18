@@ -79,10 +79,10 @@ sql_query = """
         interaction_log_type,
         interaction_log_time_min)
     VALUES
-        (1, '2022-04-14 15:00:00', 'Read', 'Book', 4, 'Chapter', 'Introdução', 0, 'Pages', 19, 24, 5, 216, 2.3148, 'Expected', '2022-04-18', 30),
-        (2, '2022-04-14 15:00:00', 'Read', 'Book', 4, 'Chapter', 'Ensinamento 1: O pensamento crítico', 1, 'Pages', 25, 29, 5, 216, 2.3148, 'Expected', '2022-04-18', 15),
-        (3, '2022-04-17 23:00:00', 'Read', 'Book', 4, 'Chapter', 'Introdução', 0, 'Pages', 19, 24, 5, 216, 2.3148, 'Realized', '2022-04-17', 30),
-        (4, '2022-04-17 23:00:00', 'Read', 'Book', 4, 'Chapter', 'Ensinamento 1: O pensamento crítico', 1, 'Pages', 25, 29, 5, 216, 2.3148, 'Realized', '2022-04-17', 10);
+        (1, '2022-04-14 15:00:00', 'Read', 'Book', 4, 'Chapter', 'Introdução', 0, '2022-04-18', 'Pages', 19, 24, 5, 216, 2.3148, 'Expected', 30),
+        (2, '2022-04-14 15:00:00', 'Read', 'Book', 4, 'Chapter', 'Ensinamento 1: O pensamento crítico', 1, '2022-04-18', 'Pages', 25, 29, 5, 216, 2.3148, 'Expected', 15),
+        (3, '2022-04-17 23:00:00', 'Read', 'Book', 4, 'Chapter', 'Introdução', 0, '2022-04-17', 'Pages', 19, 24, 5, 216, 2.3148, 'Realized', 30),
+        (4, '2022-04-17 23:00:00', 'Read', 'Book', 4, 'Chapter', 'Ensinamento 1: O pensamento crítico', 1, '2022-04-17', 'Pages', 25, 29, 5, 216, 2.3148, 'Realized', 10);
 """
 
 cur.execute(sql_query)

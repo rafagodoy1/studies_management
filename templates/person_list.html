@@ -7,6 +7,9 @@
             <ul>{{ p['person_name'] }}, ({{ p['person_id'] }})</ul>
         </a>
         <span class="badge badge-primary">{{ p['person_created_at'] }}</span>
+        <a href="{{ url_for('person_edit', person_id=p['person_id']) }}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
         <hr>
     {% endfor %}
 {% endblock %}
