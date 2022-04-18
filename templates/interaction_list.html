@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Interactions List {% endblock %}</h1>
+    {% for item in interaction %}
+        <a href="#">
+            <h2>{{ item['ks_partition_type'] }}: {{ item['ks_partition_name'] }}</h2>
+            <ul>
+                <li>Metric Name: {{ item['ks_partition_metric'] }}</li>
+                <li>Metric Total: {{ item['ks_partition_total'] }}</li>
+                <li>Log Type: {{ item['interaction_log_type'] }}</li>
+                <li>Log Time: {{ item['interaction_log_time_min'] }}</li>
+            </ul>
+        </a>
+        <span class="badge badge-primary">{{ item['interaction_created_at'] }}</span>
+        <hr>
+    {% endfor %}
+{% endblock %}

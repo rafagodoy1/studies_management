@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Reference List {% endblock %}</h1>
+    {% for item in reference %}
+        <a href="#">
+            <h2>{{ item['reference_id'] }}</h2>
+            <ul>
+                <li>Source ID: {{ item['ks_source_id'] }}</li>
+                <li>Dependant ID: {{ item['ks_dependant_id'] }}</li>
+                <li>Is Mandatory: {{ item['is_mandatory'] }}</li>
+                <li>Dependency Source: {{ item['dependency_source'] }}</li>
+            </ul>
+        </a>
+        <span class="badge badge-primary">{{ item['reference_created_at'] }}</span>
+        <hr>
+    {% endfor %}
+{% endblock %}

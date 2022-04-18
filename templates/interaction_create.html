@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Create a New Interaction {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="interaction_type_of_study">Insert Type of Study:</label>
+        <input type="text" name="interaction_type_of_study"
+               placeholder="Read, Watch, Listen, Write, Publish, Test/Exam, Teach, or Organize Knowledge" class="form-control"
+               value="{{ request.form['interaction_type_of_study'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="ks_type">Insert KS Type:</label>
+        <input type="text" name="ks_type"
+               placeholder="Book, Article, Movie, Podcast, or Univ Discipline" class="form-control"
+               value="{{ request.form['ks_type'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="ks_id">Insert KS ID:</label>
+        <input type="integer" name="ks_id"
+               placeholder="KS ID" class="form-control"
+               value="{{ request.form['ks_id'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="ks_partition_type">Insert Partition Type (Chapter/Minutes):</label>
+        <input type="text" name="ks_partition_type"
+               placeholder="Chapter or Minutes" class="form-control"
+               value="{{ request.form['ks_partition_type'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="ks_partition_name">Insert Partition Name:</label>
+        <input type="text" name="ks_partition_name"
+               placeholder="Partition Name" class="form-control"
+               value="{{ request.form['ks_partition_name'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="ks_partition_number">Insert Partition Number:</label>
+        <input type="text" name="ks_partition_number"
+               placeholder="Partition Number" class="form-control"
+               value="{{ request.form['ks_partition_number'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="interaction_date">Insert Study Date (YYYY-MM-DD):</label>
+        <input type="text" name="interaction_date"
+               placeholder="Study Date (YYYY-MM-DD)" class="form-control"
+               value="{{ request.form['interaction_date'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="ks_partition_metric">Insert Partition Metric (Chapters/Pages/Sections/Episodes/Minutes):</label>
+        <input type="text" name="ks_partition_metric"
+               placeholder="Chapters, Pages, Sections, Episodes, or Minutes" class="form-control"
+               value="{{ request.form['ks_partition_metric'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="ks_partition_start">Insert Partition Start ('YYYY-MM-DD HH:MM:SS'):</label>
+        <input type="text" name="ks_partition_start"
+               placeholder="Partition Start ('YYYY-MM-DD HH:MM:SS')" class="form-control"
+               value="{{ request.form['ks_partition_start'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="ks_partition_finish">Insert Partition Finish ('YYYY-MM-DD HH:MM:SS'):</label>
+        <input type="text" name="ks_partition_finish"
+               placeholder="Partition Finish ('YYYY-MM-DD HH:MM:SS')" class="form-control"
+               value="{{ request.form['ks_partition_finish'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="ks_partition_total">Insert Partition Total:</label>
+        <input type="integer" name="ks_partition_total"
+               placeholder="Partition Total" class="form-control"
+               value="{{ request.form['ks_partition_total'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="ks_total">Insert KS Total:</label>
+        <input type="integer" name="ks_total"
+               placeholder="KS Total" class="form-control"
+               value="{{ request.form['ks_total'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="ks_partition_percentage">Insert Partition Percentage:</label>
+        <input type="text" name="ks_partition_percentage"
+               placeholder="Partition Percentage" class="form-control"
+               value="{{ request.form['ks_partition_percentage'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="interaction_log_type">Insert Log Type (Expected/Realized):</label>
+        <input type="text" name="interaction_log_type"
+               placeholder="Expected or Realized" class="form-control"
+               value="{{ request.form['interaction_log_type'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="interaction_log_time_min">Insert Log Time (min):</label>
+        <input type="integer" name="interaction_log_time_min"
+               placeholder="Log Time (min)" class="form-control"
+               value="{{ request.form['interaction_log_time_min'] }}"></input>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}

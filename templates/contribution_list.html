@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Contribution List {% endblock %}</h1>
+    {% for item in contribution %}
+        <a href="#">
+            <h2>{{ item['contribution_id'] }}</h2>
+            <ul>
+                <li>Person ID: {{ item['person_id'] }}</li>
+                <li>KS ID: {{ item['ks_id'] }}</li>
+                <li>Contribution Type: {{ item['contribution_type'] }}</li>
+            </ul>
+        </a>
+        <span class="badge badge-primary">{{ item['contribution_created_at'] }}</span>
+        <hr>
+    {% endfor %}
+{% endblock %}

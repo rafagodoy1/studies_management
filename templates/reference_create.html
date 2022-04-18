@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Create a New Reference {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="ks_source_id">Insert Source KS ID:</label>
+        <input type="text" name="ks_source_id"
+               placeholder="KS Source ID" class="form-control"
+               value="{{ request.form['ks_source_id'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="ks_dependant_id">Insert Dependant KS ID:</label>
+        <input type="text" name="ks_dependant_id"
+               placeholder="KS Dependant ID" class="form-control"
+               value="{{ request.form['ks_dependant_id'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="is_mandatory">Insert Is Mandatory Flag (True/False):</label>
+        <input type="text" name="is_mandatory"
+               placeholder="type True or False" class="form-control"
+               value="{{ request.form['is_mandatory'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="dependency_source">Insert Dependancy Source:</label>
+        <input type="text" name="dependency_source"
+               placeholder="Dependancy Source" class="form-control"
+               value="{{ request.form['dependency_source'] }}"></input>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}
