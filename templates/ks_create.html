@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Create a New Knowlwdge Source {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="ks_name">Insert KS name:</label>
+        <input type="text" name="ks_name"
+               placeholder="KS Name" class="form-control"
+               value="{{ request.form['ks_name'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="ks_type">Insert KS type: Book, Article, Movie, Podcast, or Univ Discipline</label>
+        <input name="ks_type" placeholder="Book, Article, Movie, Podcast, or Univ Discipline"
+                  class="form-control">{{ request.form['ks_type'] }}</input>
+    </div>
+
+    <div class="form-group">
+        <label for="main_person_id">Insert Main Person ID:</label>
+        <input type="text" name="main_person_id"
+               placeholder="Main Person ID" class="form-control"
+               value="{{ request.form['main_person_id'] }}"></input>
+    </div>
+
+    <div class="form-group">
+        <label for="area">Insert Area:</label>
+        <input name="area" placeholder="Area"
+                  class="form-control">{{ request.form['area'] }}</input>
+    </div>
+
+    <div class="form-group">
+        <label for="greater_area">Insert Greater Area:</label>
+        <input name="greater_area" placeholder="Greater Area"
+                  class="form-control">{{ request.form['greater_area'] }}</input>
+    </div>
+
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}
