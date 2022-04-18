@@ -12,6 +12,9 @@
             </ul>
         </a>
         <span class="badge badge-primary">{{ ks['ks_created_at'] }}</span>
+        <a href="{{ url_for('ks_edit', ks_id=ks['ks_id']) }}">
+            <span class="badge badge-warning">Edit</span>
+        </a>
         <hr>
     {% endfor %}
 {% endblock %}

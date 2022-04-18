@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Edit an Existing Reference (ID: {{ reference['reference_id'] }}) {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="ks_source_id">Insert KS Source ID:</label>
+        <input type="text" name="ks_source_id"
+               placeholder="KS Source ID" class="form-control"
+               value="{{ request.form['ks_source_id'] or reference['ks_source_id'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="ks_dependant_id">Insert KS Dependant ID:</label>
+        <input type="text" name="ks_dependant_id"
+               placeholder="KS Dependant ID" class="form-control"
+               value="{{ request.form['ks_dependant_id'] or reference['ks_dependant_id'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="is_mandatory">Insert Is Mandatory Flag:</label>
+        <input type="text" name="is_mandatory"
+               placeholder="Is Mandatory Flag" class="form-control"
+               value="{{ request.form['is_mandatory'] or reference['is_mandatory'] }}"></input>
+    </div>
+    <div class="form-group">
+        <label for="dependency_source">Insert Is Dependency Source:</label>
+        <input type="text" name="dependency_source"
+               placeholder="Dependency Source" class="form-control"
+               value="{{ request.form['dependency_source'] or reference['dependency_source'] }}"></input>
+    </div>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}

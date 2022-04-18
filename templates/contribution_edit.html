@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>{% block title %} Edit an Existing Contribution (ID: {{ contribution['contribution_id'] }}) {% endblock %}</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="person_id">Insert Person ID:</label>
+        <input ype="text"  name="person_id" placeholder="Person ID"
+         class="form-control" value="{{ request.form['person_id'] or contribution['person_id'] }}"> </input>
+    </div>
+    <div class="form-group">
+        <label for="ks_id">Insert KS ID:</label>
+        <input ype="text"  name="ks_id" placeholder="KS ID"
+         class="form-control" value="{{ request.form['ks_id'] or contribution['ks_id'] }}"> </input>
+    </div>
+    <div class="form-group">
+        <label for="contribution_type">Insert Contribution Type:</label>
+        <input ype="text"  name="contribution_type" placeholder="Contribution Type"
+         class="form-control" value="{{ request.form['contribution_type'] or contribution['contribution_type'] }}"> </input>
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+{% endblock %}
