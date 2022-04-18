@@ -35,16 +35,16 @@ def index():
     conn.close()
     return render_template('index.html', knowledge_source=knowledge_source)
 
-@app.route('/ks-<int:ks_id>')
-def ks(ks_id):
-    ks = get_ks(ks_id)
-    return render_template('ks.html', ks=ks)
-
 @app.route('/about')
 def about():
     conn = get_db_connection()
 
     return render_template('about.html')
+
+@app.route('/ks-<int:ks_id>')
+def ks(ks_id):
+    ks = get_ks(ks_id)
+    return render_template('ks.html', ks=ks)
 
 @app.route('/ks-list')
 def ks_list():
@@ -54,15 +54,6 @@ def ks_list():
     conn.close()
 
     return render_template('ks_list.html', knowledge_source=knowledge_source)
-
-@app.route('/person-list')
-def person_list():
-    
-    conn = get_db_connection()
-    person = conn.execute('SELECT * FROM person').fetchall()
-    conn.close()
-
-    return render_template('person_list.html', person=person)
 
 @app.route('/ks-create', methods=('GET', 'POST'))
 def ks_create():
@@ -90,3 +81,31 @@ def ks_create():
             return redirect(url_for('index'))
 
     return render_template('ks_create.html')
+
+@app.route('/person-list')
+def person_list():
+    
+    conn = get_db_connection()
+    person = conn.execute('SELECT * FROM person').fetchall()
+    conn.close()
+
+    return render_template('person_list.html', person=person)
+
+@app.route('/person-create', methods=('GET', 'POST'))
+def person_create():
+    if request.method == 'POST':
+        person_name = request.form['person_name']
+
+        if not person_name:
+            flash('Name is required!')
+        else:
+            conn = get_db_connection()
+
+            sql_insertion = f"INSERT INTO person (person_name) VALUES ('{person_name}')"
+            
+            conn.execute(sql_insertion)
+            conn.commit()
+            conn.close()
+            return redirect(url_for('index'))
+
+    return render_template('person_create.html')
