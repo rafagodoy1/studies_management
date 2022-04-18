@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h2>{% block title %} {{ ks['ks_name'] }} {% endblock %}</h2>
+    <u>
+        <li>Content type: {{ ks['ks_type'] }}</li>
+        <li>Area: {{ ks['area'] }}</li>
+        <li>Greater Area: {{ ks['greater_area'] }}</li>
+    </u>
+    <span class="badge badge-primary">{{ ks['ks_created_at'] }}</span>
+{% endblock %}

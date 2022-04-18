@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>{% block title %} Knowledge Source List {% endblock %}</h1>
+    {% for ks in knowledge_source %}
+        <a href="#">
+            <h2>{{ ks['ks_name'] }}</h2>
+            <ul>
+                <li>Content type: {{ ks['ls_type'] }}</li>
+                <li>Area: {{ ks['area'] }}</li>
+                <li>Greater Area: {{ ks['greater_area'] }}</li>
+            </ul>
+        </a>
+        <span class="badge badge-primary">{{ ks['ks_created_at'] }}</span>
+        <hr>
+    {% endfor %}
+{% endblock %}
