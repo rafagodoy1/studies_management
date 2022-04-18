@@ -32,4 +32,11 @@
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
 </form>
+
+<form action="{{ url_for('reference_delete', reference_id=reference['reference_id']) }}" method="POST">
+    <input type="submit" value="Delete Reference"
+            class="btn btn-danger btn-sm"
+            onclick="return confirm('Are you sure you want to delete this reference?')">
+</form>
+
 {% endblock %}

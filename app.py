@@ -141,6 +141,16 @@ def ks_edit(ks_id):
             return redirect(url_for('index'))
 
     return render_template('ks_edit.html', ks=ks)
+
+@app.route('/ks-<int:ks_id>/ks_delete', methods=('POST',))
+def ks_delete(ks_id):
+    ks = get_ks(ks_id)
+    conn = get_db_connection()
+    conn.execute('DELETE FROM knowledge_source WHERE ks_id = ?', (ks_id,))
+    conn.commit()
+    conn.close()
+    flash('"{}" was successfully deleted!'.format(ks['ks_name']))
+    return redirect(url_for('index'))
 ######################################## Person pages ########################################
 @app.route('/person-<int:person_id>')
 def person(person_id):
@@ -197,6 +207,16 @@ def person_edit(person_id):
             return redirect(url_for('index'))
 
     return render_template('person_edit.html', person=person)
+
+@app.route('/person-<int:person_id>/person_delete', methods=('POST',))
+def person_delete(person_id):
+    person = get_person(person_id)
+    conn = get_db_connection()
+    conn.execute('DELETE FROM person WHERE person_id = ?', (person_id,))
+    conn.commit()
+    conn.close()
+    flash('"{}" was successfully deleted!'.format(person['person_name']))
+    return redirect(url_for('index'))
 ######################################## Reference pages ########################################
 @app.route('/reference-list')
 def reference_list():
@@ -269,6 +289,17 @@ def reference_edit(reference_id):
             return redirect(url_for('index'))
 
     return render_template('reference_edit.html', reference=reference)
+
+@app.route('/reference-<int:reference_id>/reference_delete', methods=('POST',))
+def reference_delete(reference_id):
+    reference = get_reference(reference_id)
+    conn = get_db_connection()
+    conn.execute('DELETE FROM reference WHERE reference_id = ?', (reference_id,))
+    conn.commit()
+    conn.close()
+    flash('"{}" was successfully deleted!'.format(reference['reference_id']))
+    return redirect(url_for('index'))
+
 ######################################## Contribution pages ########################################
 @app.route('/contribution-<int:contribution_id>')
 def contribution(contribution_id):
@@ -338,6 +369,16 @@ def contribution_edit(contribution_id):
             return redirect(url_for('index'))
 
     return render_template('contribution_edit.html', contribution=contribution)
+
+@app.route('/contribution-<int:contribution_id>/contribution_delete', methods=('POST',))
+def contribution_delete(contribution_id):
+    contribution = get_contribution(contribution_id)
+    conn = get_db_connection()
+    conn.execute('DELETE FROM contribution WHERE contribution_id = ?', (contribution_id,))
+    conn.commit()
+    conn.close()
+    flash('"{}" was successfully deleted!'.format(contribution['contribution_id']))
+    return redirect(url_for('index'))
 ######################################## Interaction pages ########################################
 @app.route('/interaction-list')
 def interaction_list():
@@ -514,3 +555,13 @@ def interaction_edit(interaction_id):
             return redirect(url_for('index'))
 
     return render_template('interaction_edit.html', interaction=interaction)
+
+@app.route('/interaction-<int:interaction_id>/interaction_delete', methods=('POST',))
+def interaction_delete(interaction_id):
+    interaction = get_interaction(interaction_id)
+    conn = get_db_connection()
+    conn.execute('DELETE FROM interaction WHERE interaction_id = ?', (interaction_id,))
+    conn.commit()
+    conn.close()
+    flash('"{}" was successfully deleted!'.format(interaction['interaction_id']))
+    return redirect(url_for('index'))
