@@ -71,7 +71,7 @@ def about():
 @app.route('/ks-<int:ks_id>')
 def ks(ks_id):
     ks = get_ks(ks_id)
-    return render_template('ks.html', ks=ks)
+    return render_template('/details_page/ks.html', ks=ks)
 
 @app.route('/ks-list')
 def ks_list():
@@ -80,7 +80,7 @@ def ks_list():
     knowledge_source = conn.execute('SELECT * FROM knowledge_source').fetchall()
     conn.close()
 
-    return render_template('ks_list.html', knowledge_source=knowledge_source)
+    return render_template('list_page/ks_list.html', knowledge_source=knowledge_source)
 
 @app.route('/ks-create', methods=('GET', 'POST'))
 def ks_create():
@@ -107,7 +107,7 @@ def ks_create():
             conn.close()
             return redirect(url_for('index'))
 
-    return render_template('ks_create.html')
+    return render_template('create_page/ks_create.html')
 
 @app.route('/ks-<int:ks_id>/ks_edit', methods=('GET', 'POST'))
 def ks_edit(ks_id):
@@ -140,7 +140,7 @@ def ks_edit(ks_id):
             conn.close()
             return redirect(url_for('index'))
 
-    return render_template('ks_edit.html', ks=ks)
+    return render_template('edit_page/ks_edit.html', ks=ks)
 
 @app.route('/ks-<int:ks_id>/ks_delete', methods=('POST',))
 def ks_delete(ks_id):
@@ -155,7 +155,7 @@ def ks_delete(ks_id):
 @app.route('/person-<int:person_id>')
 def person(person_id):
     person = get_person(person_id)
-    return render_template('person.html', person=person)
+    return render_template('details_page/person.html', person=person)
 
 @app.route('/person-list')
 def person_list():
@@ -164,7 +164,7 @@ def person_list():
     person = conn.execute('SELECT * FROM person').fetchall()
     conn.close()
 
-    return render_template('person_list.html', person=person)
+    return render_template('list_page/person_list.html', person=person)
 
 @app.route('/person-create', methods=('GET', 'POST'))
 def person_create():
@@ -183,7 +183,7 @@ def person_create():
             conn.close()
             return redirect(url_for('index'))
 
-    return render_template('person_create.html')
+    return render_template('create_page/person_create.html')
 
 @app.route('/person-<int:person_id>/person_edit', methods=('GET', 'POST'))
 def person_edit(person_id):
@@ -206,7 +206,7 @@ def person_edit(person_id):
             conn.close()
             return redirect(url_for('index'))
 
-    return render_template('person_edit.html', person=person)
+    return render_template('edit_page/person_edit.html', person=person)
 
 @app.route('/person-<int:person_id>/person_delete', methods=('POST',))
 def person_delete(person_id):
@@ -225,7 +225,7 @@ def reference_list():
     reference = conn.execute('SELECT * FROM reference').fetchall()
     conn.close()
 
-    return render_template('reference_list.html', reference=reference)
+    return render_template('list_page/reference_list.html', reference=reference)
 
 @app.route('/reference-create', methods=('GET', 'POST'))
 def reference_create():
@@ -253,7 +253,7 @@ def reference_create():
             conn.close()
             return redirect(url_for('index'))
 
-    return render_template('reference_create.html')
+    return render_template('create_page/reference_create.html')
 
 @app.route('/reference-<int:reference_id>/reference_edit', methods=('GET', 'POST'))
 def reference_edit(reference_id):
@@ -288,7 +288,7 @@ def reference_edit(reference_id):
             conn.close()
             return redirect(url_for('index'))
 
-    return render_template('reference_edit.html', reference=reference)
+    return render_template('edit_page/reference_edit.html', reference=reference)
 
 @app.route('/reference-<int:reference_id>/reference_delete', methods=('POST',))
 def reference_delete(reference_id):
@@ -313,7 +313,7 @@ def contribution_list():
     contribution = conn.execute('SELECT * FROM contribution').fetchall()
     conn.close()
 
-    return render_template('contribution_list.html', contribution=contribution)
+    return render_template('list_page/contribution_list.html', contribution=contribution)
 
 @app.route('/contribution-create', methods=('GET', 'POST'))
 def contribution_create():
@@ -337,7 +337,7 @@ def contribution_create():
             conn.close()
             return redirect(url_for('index'))
 
-    return render_template('contribution_create.html')
+    return render_template('create_page/contribution_create.html')
 
 @app.route('/contribution-<int:contribution_id>/contribution_edit', methods=('GET', 'POST'))
 def contribution_edit(contribution_id):
@@ -368,7 +368,7 @@ def contribution_edit(contribution_id):
             conn.close()
             return redirect(url_for('index'))
 
-    return render_template('contribution_edit.html', contribution=contribution)
+    return render_template('edit_page/contribution_edit.html', contribution=contribution)
 
 @app.route('/contribution-<int:contribution_id>/contribution_delete', methods=('POST',))
 def contribution_delete(contribution_id):
@@ -387,7 +387,7 @@ def interaction_list():
     interaction = conn.execute('SELECT * FROM interaction').fetchall()
     conn.close()
 
-    return render_template('interaction_list.html', interaction=interaction)
+    return render_template('list_page/interaction_list.html', interaction=interaction)
 
 @app.route('/interaction-create', methods=('GET', 'POST'))
 def interaction_create():
@@ -477,7 +477,7 @@ def interaction_create():
             conn.close()
             return redirect(url_for('index'))
 
-    return render_template('interaction_create.html')
+    return render_template('create_page/interaction_create.html')
 
 @app.route('/interaction-<int:interaction_id>/interaction_edit', methods=('GET', 'POST'))
 def interaction_edit(interaction_id):
@@ -554,7 +554,7 @@ def interaction_edit(interaction_id):
             conn.close()
             return redirect(url_for('index'))
 
-    return render_template('interaction_edit.html', interaction=interaction)
+    return render_template('edit_page/interaction_edit.html', interaction=interaction)
 
 @app.route('/interaction-<int:interaction_id>/interaction_delete', methods=('POST',))
 def interaction_delete(interaction_id):
